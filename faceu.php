@@ -13,7 +13,7 @@ $uriBase = 'https://westeurope.api.cognitive.microsoft.com/face/v1.0/';
 ?>
 
 <?php
-
+/*
 if(isset($_POST["upload"])) {
     $cn=makeconnection();
     $i = 0;
@@ -62,9 +62,26 @@ if(isset($_POST["upload"])) {
         mysqli_close($cn);
     }           
 }
-?>
-   
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+*/
+
+    
+    $img = $_POST['image'];
+    $folderPath = "uploads/";
+  
+    $image_parts = explode(";base64,", $img);
+    $image_type_aux = explode("image/", $image_parts[0]);
+    $image_type = $image_type_aux[1];
+  
+    $image_base64 = base64_decode($image_parts[1]);
+    $fileName = uniqid() . '.jpg';
+  
+    $file = $folderPath . $fileName;
+    file_put_contents($file, $image_base64);
+  
+    print_r($fileName);
+
+/*
+<!--<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
     <div class="">
         <input type="file" name="faceu" required=""/>
     </div>
@@ -77,20 +94,19 @@ if(isset($_POST["upload"])) {
 
 <?php
     
-   $cn=makeconnection();
-        $s="SELECT * FROM snapshot where id=1";
-        $q=mysqli_query($cn,$s);
-        $r=mysqli_num_rows($q);
-        while ($data = mysqli_fetch_array($q)) {
-                $imageUrl = $data['Image'];
+   //$cn=makeconnection();
+        //$s="SELECT * FROM snapshot where id=1";
+        //$q=mysqli_query($cn,$s);
+        //$r=mysqli_num_rows($q);
+        //while ($data = mysqli_fetch_array($q)) {
+        //        $imageUrl = $data['Image'];
        ?>
 
        <img src="http://localhost/faceu/uploads/<?php echo $imageUrl;?>">
    <?php }?>
-  <?php
-$imageUrl =
-    'http://www.gstatic.com/tv/thumb/persons/67369/67369_v9_bb.jpg';
-    
+   -->
+*/
+$imageUrl = $fileName; 
 
 
 // This sample uses the PHP5 HTTP_Request2 package
