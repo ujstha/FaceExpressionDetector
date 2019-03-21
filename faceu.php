@@ -63,7 +63,7 @@ if(isset($_POST["upload"])) {
     }           
 }
 */
-
+/*
     
     $img = $_POST['image'];
     $folderPath = "uploads/";
@@ -79,6 +79,11 @@ if(isset($_POST["upload"])) {
     file_put_contents($file, $image_base64);
   
     print_r($fileName);
+    print_r($image_base64.'base64');
+    print_r($image_type.'hoolatype');
+    print_r($image_type_aux.'type aux');
+    print_r($image_parts.'img parts');
+    print_r($img.'img');
 
 /*
 <!--<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
@@ -106,7 +111,8 @@ if(isset($_POST["upload"])) {
    <?php }?>
    -->
 */
-$imageUrl = $fileName; 
+
+    
 
 
 // This sample uses the PHP5 HTTP_Request2 package
