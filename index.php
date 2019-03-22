@@ -37,8 +37,6 @@
 </head>
 <body>
 
-    
-  
 <div class="container">
     <h1 class="text-center">Webcam, Cloudinary, PHP and Face API</h1>
    

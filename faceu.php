@@ -59,7 +59,7 @@
         }           
     }
     */
-    /*
+    /*image upload from imagelibrary
         
         $img = $_POST['image'];
         $folderPath = "uploads/";
@@ -82,7 +82,7 @@
         print_r($img.'img');
 
     /*
-    <!--<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
         <div class="">
             <input type="file" name="faceu" required=""/>
         </div>
@@ -92,20 +92,17 @@
         </div>
     </form>
 
-
     <?php
-        
-       //$cn=makeconnection();
-            //$s="SELECT * FROM snapshot where id=1";
-            //$q=mysqli_query($cn,$s);
-            //$r=mysqli_num_rows($q);
-            //while ($data = mysqli_fetch_array($q)) {
-            //        $imageUrl = $data['Image'];
+        getting all images from db
+        //$cn=makeconnection();
+        //$s="SELECT * FROM snapshot where id=1";
+        //$q=mysqli_query($cn,$s);
+        //$r=mysqli_num_rows($q);
+        //while ($data = mysqli_fetch_array($q)) {
+            //$imageUrl = $data['Image'];
            ?>
-
            <img src="http://localhost/faceu/uploads/<?php echo $imageUrl;?>">
        <?php }?>
-       -->
     */
 
     require "vendor/autoload.php";
