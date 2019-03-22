@@ -1,4 +1,29 @@
+<?php
+        
 
+
+    require "vendor/autoload.php";
+    require "config-cloud.php";
+
+    if(isset($_POST['simpan'])) {
+        $img = $_POST['image'];
+    $folderPath = "uploads/";
+  
+    $image_parts = explode(";base64,", $img);
+    $image_type_aux = explode("image/", $image_parts[0]);
+    $image_type = $image_type_aux[1];
+  
+    $image_base64 = base64_decode($image_parts[1]);
+    $f = uniqid();
+    $fileName = $f . '.jpg';
+    $file = $folderPath . $fileName;
+    file_put_contents($file, $image_base64);
+  
+    print_r($fileName);
+
+        \Cloudinary\Uploader::upload($img, array("public_id" => $f));
+    }
+    ?>
 
 <!DOCTYPE html>
 <html>

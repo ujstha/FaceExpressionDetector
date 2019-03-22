@@ -112,7 +112,27 @@ if(isset($_POST["upload"])) {
    -->
 */
 
-    
+   require "vendor/autoload.php";
+    require "config-cloud.php";
+$img = $_POST['image'];
+    $folderPath = "uploads/";
+  
+    $image_parts = explode(";base64,", $img);
+    $image_type_aux = explode("image/", $image_parts[0]);
+    $image_type = $image_type_aux[1];
+  
+    $image_base64 = base64_decode($image_parts[1]);
+  
+    $f = uniqid();
+    $fileName = $f . '.jpg';
+  
+    $file = $folderPath . $fileName;
+    file_put_contents($file, $image_base64);
+  
+    print_r($fileName);
+
+        \Cloudinary\Uploader::upload($img, array("public_id" => $f));
+$imageUrl = 'http://res.cloudinary.com/doo4zgtkg/image/upload/'.$fileName; 
 
 
 // This sample uses the PHP5 HTTP_Request2 package
