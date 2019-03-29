@@ -45,7 +45,6 @@
             <div class="col-md-6">
                 <div id="my_camera"></div>
                 <br/>
-                <input type=button value="Take Snapshot" onClick="take_snapshot()">
                 <input type="hidden" name="image" class="image-tag">
             </div>
             <div class="col-md-6">
@@ -53,7 +52,7 @@
             </div>
             <div class="col-md-12 text-center">
                 <br/>
-                <button class="btn btn-success">Submit</button>
+                <button class="btn btn-success" onClick="take_snapshot()" name="click">Submit</button>
             </div>
         </div>
     </form>
