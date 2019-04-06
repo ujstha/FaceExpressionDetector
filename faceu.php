@@ -158,64 +158,127 @@
                         </div>
                         <nav class="mt-5" style="margin-left: 5em;">
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
-                                    Home
+                                <a class="nav-item nav-link active" id="nav-id-tab" data-toggle="tab" href="#nav-id" role="tab" aria-controls="nav-id" aria-selected="true">
+                                    Face Id
                                 </a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
-                                    Profile
+                                <a class="nav-item nav-link" id="nav-facelandmark-tab" data-toggle="tab" href="#nav-facelandmark" role="tab" aria-controls="nav-facelandmark" aria-selected="false">
+                                    Face Landmark
                                 </a>
-                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
-                                    Contact
+                                <a class="nav-item nav-link" id="nav-faceattributes-tab" data-toggle="tab" href="#nav-faceattributes" role="tab" aria-controls="nav-faceattributes" aria-selected="false">
+                                    Face Attributes
                                 </a>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="tab-pane fade show active" id="nav-id" role="tabpanel" aria-labelledby="nav-id-tab">
                                 <div class="row mt-2">
                                     <div class="col-12">
                                         <div class="card">
-                                            <h3 class="ml-3 mt-2">Face id</h3>
+                                            <h3 class="ml-3 mt-2">Face Id</h3>
                                         </div>
                                     </div>
                                     <div class="col-3" style="border-right: 1px solid whitesmoke;">
                                         <div class="nav flex-column nav-pills my-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                            <a class="nav-link active sub" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                                                Home
-                                            </a>
-                                            <a class="nav-link sub" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                                                Profile
-                                            </a>
-                                            <a class="nav-link sub" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                                Messages
-                                            </a>
-                                            <a class="nav-link sub" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                                                Settings
+                                            <a class="nav-link active sub" id="v-pills-faceid-tab" data-toggle="pill" href="#v-pills-faceid" role="tab" aria-controls="v-pills-faceid" aria-selected="true">
+                                                ID
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-9">
-                                        <div class="tab-content" id="v-pills-tabContent">
-                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                                ...
-                                            </div>
-                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                ...
-                                            </div>
-                                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                ...
-                                            </div>
-                                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                                ...
+                                        <div class="tab-content my-2" id="v-pills-tabContent">
+                                            <div class="tab-pane fade show active" id="v-pills-faceid" role="tabpanel" aria-labelledby="v-pills-faceid-tab">
+                                                <?php echo $results["values"][0]; ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                ...
+                            <div class="tab-pane fade" id="nav-facelandmark" role="tabpanel" aria-labelledby="nav-facelandmark-tab">
+                                <div class="row mt-2">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <h3 class="ml-3 mt-2">Face Landmark</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-3" style="border-right: 1px solid whitesmoke;">
+                                        <div class="nav flex-column nav-pills my-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link active sub" id="v-pills-pupil-tab" data-toggle="pill" href="#v-pills-pupil" role="tab" aria-controls="v-pills-pupil" aria-selected="true">
+                                                Pupil
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-nose-tab" data-toggle="pill" href="#v-pills-nose" role="tab" aria-controls="v-pills-nose" aria-selected="false">
+                                                Nose
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-mouth-tab" data-toggle="pill" href="#v-pills-mouth" role="tab" aria-controls="v-pills-mouth" aria-selected="false">
+                                                Mouth
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-eyebrow-tab" data-toggle="pill" href="#v-pills-eyebrow" role="tab" aria-controls="v-pills-eyebrow" aria-selected="false">
+                                                Eyebrow
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-eye-tab" data-toggle="pill" href="#v-pills-eye" role="tab" aria-controls="v-pills-eye" aria-selected="false">
+                                                Eye
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-noseroot-tab" data-toggle="pill" href="#v-pills-noseroot" role="tab" aria-controls="v-pills-noseroot" aria-selected="false">
+                                                Nose Root
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-nosealar-tab" data-toggle="pill" href="#v-pills-nosealar" role="tab" aria-controls="v-pills-nosealar" aria-selected="false">
+                                                Nose Alar
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-nosealarout-tab" data-toggle="pill" href="#v-pills-nosealarout" role="tab" aria-controls="v-pills-nosealarout" aria-selected="false">
+                                                Nose Alarout
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-upperlip-tab" data-toggle="pill" href="#v-pills-upperlip" role="tab" aria-controls="v-pills-upperlip" aria-selected="false">
+                                                Upper Lip
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-underlip-tab" data-toggle="pill" href="#v-pills-underlip" role="tab" aria-controls="v-pills-underlip" aria-selected="false">
+                                                Under Lip
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="tab-content my-2" id="v-pills-tabContent">
+                                            <div class="tab-pane fade show active" id="v-pills-pupil" role="tabpanel" aria-labelledby="v-pills-pupil-tab">
+                                                pupil
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-nose" role="tabpanel" aria-labelledby="v-pills-nose-tab">
+                                                nose
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-mouth" role="tabpanel" aria-labelledby="v-pills-mouth-tab">
+                                                mouth
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-eyebrow" role="tabpanel" aria-labelledby="v-pills-eyebrow-tab">
+                                                eyebrow
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-eye" role="tabpanel" aria-labelledby="v-pills-eye-tab">
+                                                eye
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-noseroot" role="tabpanel" aria-labelledby="v-pills-noseroot-tab">
+                                                nose root
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-nosealar" role="tabpanel" aria-labelledby="v-pills-nosealar-tab">
+                                                nose alar
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-nosealarout" role="tabpanel" aria-labelledby="v-pills-nosealarout-tab">
+                                                nose alarout
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-upperlip" role="tabpanel" aria-labelledby="v-pills-upperlip-tab">
+                                                upper lip
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-underlip" role="tabpanel" aria-labelledby="v-pills-underlip-tab">
+                                                under lip
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                ...
+                            <div class="tab-pane fade" id="nav-faceattributes" role="tabpanel" aria-labelledby="nav-faceattributes-tab">
+                                <div class="row mt-2">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <h3 class="ml-3 mt-2">Face Attributes</h3>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>

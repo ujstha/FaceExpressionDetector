@@ -5,7 +5,7 @@ body {
 .nav-link.active, .nav-link:hover, .card {
 	border-radius: 0;
 }
-a.nav-link {
+a.nav-link, .tab-content {
 	color: whitesmoke;
 }
 .nav-link.sub {
