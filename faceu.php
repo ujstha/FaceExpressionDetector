@@ -277,7 +277,56 @@
                                             <h3 class="ml-3 mt-2">Face Attributes</h3>
                                         </div>
                                     </div>
-                                    
+                                    <div class="col-3" style="border-right: 1px solid whitesmoke;">
+                                        <div class="nav flex-column nav-pills my-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link active sub" id="v-pills-smile-tab" data-toggle="pill" href="#v-pills-smile" role="tab" aria-controls="v-pills-smile" aria-selected="true">
+                                                Smile
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-headpose-tab" data-toggle="pill" href="#v-pills-headpose" role="tab" aria-controls="v-pills-headpose" aria-selected="true">
+                                                Headpose
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-gender-tab" data-toggle="pill" href="#v-pills-gender" role="tab" aria-controls="v-pills-gender" aria-selected="true">
+                                                Gender
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-age-tab" data-toggle="pill" href="#v-pills-age" role="tab" aria-controls="v-pills-age" aria-selected="true">
+                                                Age
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-facialhair-tab" data-toggle="pill" href="#v-pills-facialhair" role="tab" aria-controls="v-pills-facialhair" aria-selected="true">
+                                                Facial hair
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-glasses-tab" data-toggle="pill" href="#v-pills-glasses" role="tab" aria-controls="v-pills-glasses" aria-selected="true">
+                                                Glasses
+                                            </a>
+                                            <a class="nav-link sub" id="v-pills-emotion-tab" data-toggle="pill" href="#v-pills-emotion" role="tab" aria-controls="v-pills-emotion" aria-selected="true">
+                                                Emotion
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="tab-content my-2" id="v-pills-tabContent">
+                                            <div class="tab-pane fade show active" id="v-pills-smile" role="tabpanel" aria-labelledby="v-pills-smile-tab">
+                                                smile
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-headpose" role="tabpanel" aria-labelledby="v-pills-headpose-tab">
+                                                headpose
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-gender" role="tabpanel" aria-labelledby="v-pills-gender-tab">
+                                                gender
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-age" role="tabpanel" aria-labelledby="v-pills-age-tab">
+                                                age
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-facialhair" role="tabpanel" aria-labelledby="v-pills-facialhair-tab">
+                                                facialhair
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-glasses" role="tabpanel" aria-labelledby="v-pills-glasses-tab">
+                                                glasses
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-emotion" role="tabpanel" aria-labelledby="v-pills-emotion-tab">
+                                                emotion
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
