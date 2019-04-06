@@ -61,10 +61,10 @@
 <!-- Configure a few settings and attach camera -->
 <script language="JavaScript">
     Webcam.set({
-        width: 490,
-        height: 390,
+        width: 550,
+        height: 450,
         image_format: 'jpeg',
-        jpeg_quality: 90
+        jpeg_quality: 100
     });
   
     Webcam.attach( '#my_camera' );

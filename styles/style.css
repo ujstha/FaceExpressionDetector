@@ -1,0 +1,30 @@
+body {
+	font-family: 'Raleway', 'Montserrat', sans-serif;
+	font-size: 20px;
+}
+.nav-link.active, .nav-link:hover, .card {
+	border-radius: 0;
+}
+a.nav-link {
+	color: whitesmoke;
+}
+.nav-link.sub {
+	border-left: 2px solid transparent;
+	background-color: transparent;
+	transition: border-color 1s linear;
+	-moz-transition: border-color 1s linear;    /* FF3.7+ */
+	-o-transition: border-color 1s linear;      /* Opera 10.5 */
+	-webkit-transition: border-color 1s linear; 
+}
+.nav-link.sub.active {
+	border-left-color: whitesmoke;
+	background-color: transparent;
+}
+a.nav-link.sub {
+	padding: 0;
+	padding-left: 8px;
+	margin-top: 10px;
+}
+.card {
+	background-color: lightgrey;
+}

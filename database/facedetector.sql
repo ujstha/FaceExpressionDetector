@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `facedetect` (
   `Neutral` varchar(50) NOT NULL,
   `Sadness` varchar(50) NOT NULL,
   `Surprise` varchar(50) NOT NULL,
+  `date_added` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`Id`)
 
