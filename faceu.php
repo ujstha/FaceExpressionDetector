@@ -107,12 +107,8 @@
             $results = printValues($result);
             //echo "<h3>" . $result["total"] . " value(s) found: </h3>";
             //echo implode("<br>", $result["values"]);
- 
-            echo "<hr>";
-
-            echo "<pre>" .$results["keys"][2]. ' -> ' .$results["values"][2]. "</pre>";
             //to print in array style
-            echo "<pre>" .json_encode($results, JSON_PRETTY_PRINT). "</pre>";
+            //echo "<pre>" .json_encode($results, JSON_PRETTY_PRINT). "</pre>";
 
             //$result = json_encode($response->getBody());
             //echo $result;
@@ -128,31 +124,42 @@
         <head>
             <title>Face Expression Detector</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
             <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
 
             <link rel="stylesheet" type="text/css" href="./styles/style.css">
+
+            <style type="text/css">
+                .card {
+                    background-color: rgba(0,0,0,.6);
+                }
+                .panel-collapse {
+                    background-color: rgba(0,0,0,.5);
+                }
+            </style>
         </head>
         <body>
             <div class="container-fluid">
                 <div class="row mb-3" style="background-color: rgba(44, 62, 80, 1);">
-                    <div class="col-lg-5 col-md-6 py-3">
+                    <div class="col-lg-5 col-md-12 py-3">
                         <img src="<?php echo $imageUrl; ?>" alt="Image">
                     </div>
-                    <div class="col-lg-7 col-md-6 pt-3">
+                    <div class="col-lg-7 col-md-12 pt-3">
                         <div class="row general" style="font-size: 25px; color: whitesmoke;">
-                            <div class="col-lg-2">
+                            <div class="col-2">
                                 <strong>Name</strong>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-10">
                                 Ujjawal Shrestha
                             </div>
                             <br/>
-                            <div class="col-lg-2">
+                            <div class="col-2">
                                 <strong>Age</strong>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-10">
                                 23
                             </div>
                         </div>
@@ -217,15 +224,6 @@
                                             <a class="nav-link sub" id="v-pills-eye-tab" data-toggle="pill" href="#v-pills-eye" role="tab" aria-controls="v-pills-eye" aria-selected="false">
                                                 Eye
                                             </a>
-                                            <a class="nav-link sub" id="v-pills-noseroot-tab" data-toggle="pill" href="#v-pills-noseroot" role="tab" aria-controls="v-pills-noseroot" aria-selected="false">
-                                                Nose Root
-                                            </a>
-                                            <a class="nav-link sub" id="v-pills-nosealar-tab" data-toggle="pill" href="#v-pills-nosealar" role="tab" aria-controls="v-pills-nosealar" aria-selected="false">
-                                                Nose Alar
-                                            </a>
-                                            <a class="nav-link sub" id="v-pills-nosealarout-tab" data-toggle="pill" href="#v-pills-nosealarout" role="tab" aria-controls="v-pills-nosealarout" aria-selected="false">
-                                                Nose Alarout
-                                            </a>
                                             <a class="nav-link sub" id="v-pills-upperlip-tab" data-toggle="pill" href="#v-pills-upperlip" role="tab" aria-controls="v-pills-upperlip" aria-selected="false">
                                                 Upper Lip
                                             </a>
@@ -237,32 +235,299 @@
                                     <div class="col-9">
                                         <div class="tab-content my-2" id="v-pills-tabContent">
                                             <div class="tab-pane fade show active" id="v-pills-pupil" role="tabpanel" aria-labelledby="v-pills-pupil-tab">
-                                                pupil
+                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingPupilLeft">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePupilLeft" aria-expanded="true" aria-controls="collapsePupilLeft">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Pupil Left
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapsePupilLeft" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPupilLeft">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][5]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][6]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingPupilRight">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePupilRight" aria-expanded="false" aria-controls="collapsePupilRight">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Pupil Right
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapsePupilRight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPupilRight">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][7]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][8]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- panel-group -->
                                             </div>
+
                                             <div class="tab-pane fade" id="v-pills-nose" role="tabpanel" aria-labelledby="v-pills-nose-tab">
-                                                nose
+                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingNose">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNose" aria-expanded="true" aria-controls="collapseNose">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Nose Tip
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseNose" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNose">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][9]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][10]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingNoseRootLeft">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNoseRootLeft" aria-expanded="true" aria-controls="collapseNoseRootLeft">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Nose Root Left
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseNoseRootLeft" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNoseRootLeft">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][9]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][10]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingNoseRootRight">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNoseRootRight" aria-expanded="true" aria-controls="collapseNoseRootRight">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Nose Root Right
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseNoseRootRight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNoseRootRight">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][9]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][10]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingNoseLeftAlarTop">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNoseLeftAlarTop" aria-expanded="true" aria-controls="collapseNoseLeftAlarTop">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Nose Left Alar Top
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseNoseLeftAlarTop" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNoseLeftAlarTop">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][9]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][10]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingNoseRightAlarTop">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNoseRightAlarTop" aria-expanded="true" aria-controls="collapseNoseRightAlarTop">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Nose Right Alar Top
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseNoseRightAlarTop" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNoseRightAlarTop">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][9]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][10]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingNoseLeftAlarOutTip">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNoseLeftAlarOutTip" aria-expanded="true" aria-controls="collapseNoseLeftAlarOutTip">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Nose Left Alar Out Tip
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseNoseLeftAlarOutTip" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNoseLeftAlarOutTip">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][9]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][10]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingNoseRightAlarOutTip">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNoseRightAlarOutTip" aria-expanded="true" aria-controls="collapseNoseRightAlarOutTip">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Nose Right Alar Out Tip
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseNoseRightAlarOutTip" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNoseRightAlarOutTip">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][9]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][10]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- panel-group -->
                                             </div>
+
                                             <div class="tab-pane fade" id="v-pills-mouth" role="tabpanel" aria-labelledby="v-pills-mouth-tab">
-                                                mouth
+                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingMouthLeft">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMouthLeft" aria-expanded="true" aria-controls="collapseMouthLeft">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Mouth Left
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseMouthLeft" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMouthLeft">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][11]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][12]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingMouthRight">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMouthRight" aria-expanded="false" aria-controls="collapseMouthRight">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Mouth Right
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseMouthRight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMouthRight">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][13]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][14]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- panel-group -->
                                             </div>
+
                                             <div class="tab-pane fade" id="v-pills-eyebrow" role="tabpanel" aria-labelledby="v-pills-eyebrow-tab">
-                                                eyebrow
+                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingEyebrowLeftOuter">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEyebrowLeftOuter" aria-expanded="true" aria-controls="collapseEyebrowLeftOuter">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Eyebrow Left Outer
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseEyebrowLeftOuter" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEyebrowLeftOuter">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][5]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][6]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingEyebrowLeftInner">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEyebrowLeftInner" aria-expanded="true" aria-controls="collapseEyebrowLeftInner">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Eyebrow Left Inner
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseEyebrowLeftInner" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEyebrowLeftInner">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][5]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][6]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingEyebrowRightOuter">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEyebrowRightOuter" aria-expanded="false" aria-controls="collapseEyebrowRightOuter">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Eyebrow Right Outer
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseEyebrowRightOuter" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEyebrowRightOuter">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][7]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][8]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingEyebrowRightInner">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEyebrowRightInner" aria-expanded="false" aria-controls="collapseEyebrowRightInner">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Eyebrow Right Inner
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseEyebrowRightInner" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEyebrowRightInner">
+                                                            <div class="panel-body p-2">
+                                                                <strong>X : </strong><?php echo $results["values"][7]; ?>
+                                                                <br />
+                                                                <strong>Y : </strong><?php echo $results["values"][8]; ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- panel-group -->
                                             </div>
+
                                             <div class="tab-pane fade" id="v-pills-eye" role="tabpanel" aria-labelledby="v-pills-eye-tab">
                                                 eye
                                             </div>
-                                            <div class="tab-pane fade" id="v-pills-noseroot" role="tabpanel" aria-labelledby="v-pills-noseroot-tab">
-                                                nose root
-                                            </div>
-                                            <div class="tab-pane fade" id="v-pills-nosealar" role="tabpanel" aria-labelledby="v-pills-nosealar-tab">
-                                                nose alar
-                                            </div>
-                                            <div class="tab-pane fade" id="v-pills-nosealarout" role="tabpanel" aria-labelledby="v-pills-nosealarout-tab">
-                                                nose alarout
-                                            </div>
+
                                             <div class="tab-pane fade" id="v-pills-upperlip" role="tabpanel" aria-labelledby="v-pills-upperlip-tab">
                                                 upper lip
                                             </div>
+
                                             <div class="tab-pane fade" id="v-pills-underlip" role="tabpanel" aria-labelledby="v-pills-underlip-tab">
                                                 under lip
                                             </div>
@@ -308,7 +573,55 @@
                                                 smile
                                             </div>
                                             <div class="tab-pane fade" id="v-pills-headpose" role="tabpanel" aria-labelledby="v-pills-headpose-tab">
-                                                headpose
+                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingOne">
+                                                            <h4 class="panel-title">
+                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Collapsible Group Item #1
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                            <div class="panel-body">
+                                                                a
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Collapsible Group Item #2
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                            <div class="panel-body">
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingThree">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                    <i class="more-less fas fa-angle-down"></i>
+                                                                    Collapsible Group Item #3
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                            <div class="panel-body">
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- panel-group -->
                                             </div>
                                             <div class="tab-pane fade" id="v-pills-gender" role="tabpanel" aria-labelledby="v-pills-gender-tab">
                                                 gender
@@ -335,9 +648,10 @@
             </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="./scripts/accordion.js"></script>
         </body>
     </html>
 
